@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ABC_Retail.Models.ProductEntity>
+@{
+    ViewData["Title"] = "Customer List";
+}
+<h2>Customer List</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+<a href="@Url.Action("Create")">Add New Customer</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ProductID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.ProductID</td>
+                <td>@customer.Name</td>
+                <td>@customer.Price</td>
+                <td>@customer.Stock</td>
+                <td>@customer.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
